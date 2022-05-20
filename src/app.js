@@ -60,3 +60,14 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = Math.round((14 * 9) / 5 + 32);
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+let faherheitLink = document.querySelector("#fahrenheit-link");
+faherheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+search("Uzhgorod");
