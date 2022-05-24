@@ -24,7 +24,8 @@ function formatDate(timestamp) {
 function displayTemperatute(response) {
   console.log(response.data);
   let temperatute = document.querySelector("#temperature");
-  temperatute.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  temperatute.innerHTML = Math.round(celsiusTemperature);
   let city = document.querySelector("#city");
   city.innerHTML = response.data.name;
   let condition = document.querySelector("#condition");
@@ -63,11 +64,26 @@ form.addEventListener("submit", handleSubmit);
 
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let fahrenheitTemperature = Math.round((14 * 9) / 5 + 32);
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = fahrenheitTemperature;
+  celsiuslink.classList.remove("active");
+  faherheitLink.classList.add("active");
 }
+
 let faherheitLink = document.querySelector("#fahrenheit-link");
 faherheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  celsiuslink.classList.add("active");
+  faherheitLink.classList.remove("active");
+}
+
+let celsiuslink = document.querySelector("#celsius-link");
+celsiuslink.addEventListener("click", displayCelsiusTemperature);
+let celsiusTemperature = null;
 
 search("Uzhgorod");
