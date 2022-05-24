@@ -31,7 +31,11 @@ li::first-letter {
 }
 
 a {
-    text-decoration: none
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .weather-app-wrapper {
@@ -74,9 +78,26 @@ a {
 .weather-temperature .active {
     color: rgb(33, 33, 33);
     cursor: default;
-
 }
 
 .weather-temperature .active:hover {
     text-decoration: none;
+}
+
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.weather-forecast-temperature {
+    font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+    opacity: 0.6;
 }
